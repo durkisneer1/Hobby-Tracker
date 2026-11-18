@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hobby Tracker</title>
+  </head>
+  <body>
+    <h1>Issues</h1>
+
+    <h2>Create an issue</h2>
+    <form id="create-issue">
+      <label for="title">Title</label>
+      <input id="title" name="title" required />
+
+      <label for="description">Description</label>
+      <textarea id="description" name="description"></textarea>
+
+      <button type="submit">Create issue</button>
+      <p id="create-message" role="status"></p>
+    </form>
+
+    <button id="refresh">Refresh</button>
+    <p id="message" role="status"></p>
+    <ul id="issues"></ul>
+
+    <script type="module" src="/static/issues.js"></script>
+  </body>
+</html>
