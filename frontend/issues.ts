@@ -9,6 +9,7 @@ const submitButton = form.querySelector<HTMLButtonElement>('button[type="submit"
 const createMessage = document.querySelector<HTMLParagraphElement>("#create-message")!;
 
 interface Issue {
+  id: number;
   title: string;
 }
 
@@ -67,8 +68,14 @@ async function loadIssues() {
 
     if (data.items.length > 0) {
         data.items.forEach(issue => {
+            const link = document.createElement("a");
+            link.href = `/static/issue.html?id=${issue.id}`;
+            link.textContent = issue.title;
+            link.target = "_blank";
+
             const item = document.createElement("li");
-            item.textContent = issue.title;
+            item.appendChild(link);
+
             list.append(item);
         });
         message.textContent = `Showing ${data.items.length} issues.`;
